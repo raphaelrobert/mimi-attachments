@@ -29,12 +29,12 @@ This document describes MIMI Attachments.
 
 # Introduction
 
-Attachments are knowm from email, where they are used to attach files to an
+Attachments are known from email, where they are used to attach files to an
 email message. Attachments are also used in instant messaging, where they are
 used to attach files, images, videos, etc.
 
 The main difference between attachments and other messages is that attachments
-ir bigger in size and their content is typically saved in files on the client
+are bigger in size and their content is typically saved in files on the client
 side. Since downloading attachments can be expensive for instant messaging
 clients, it is common to download attachments only on demand, e.g. when the user
 clicks on the attachment.
@@ -42,6 +42,15 @@ clicks on the attachment.
 draft-mimi-content defines various message content formats that can be used in
 either MLS application messages or attachments. This document describes how
 attachments are used in MIMI.
+
+# Access control & quotas
+
+Attachments are bound to a specific MLS group. Only members of the group can
+access the attachment. The Delivery Service enforces this access control. 
+
+The Delivery Service can keep track of the size of attachments for each group,
+its total number, who uploaded them, etc. This information can be used to
+enforce quotas on the size of attachments, the number of attachments, etc.
 
 # Distribution
 
@@ -57,11 +66,12 @@ and cryptographic key material to the intended recipients.
 
 TODO: This probably become part of *draft-robert-mimi-delivery-service*.
 
-The client first encrypts the attachment as descibed in {{encryption}} and the n
+The client first encrypts the attachment as descibed in {{encryption}} and then
 uploads it to the DS using the following message:
 
 ~~~tls
 struct {
+  opaque group_id<V>;
   opaque content<V>;
 } UploadAttachmentRequest;
 ~~~
@@ -88,7 +98,8 @@ body.contentType = "message/external-body; access-type=token;" +
 The token is the token that was received from the Delivery Service as part of
 the UploadAttachmentResponse message. The nonce is a random byte sequence that
 is used in the key derivation descibed in {{encryption}}. The hash is the hash
-of the plaintext attachment content, as defined in {{encryption}}.
+of the plaintext attachment content, as defined in {{encryption}}. The hash acts
+as a commitment hash for the attachment content.
 
 TODO: This needs to be better aligned with draft-ietf-mimi-content.
 
@@ -100,6 +111,7 @@ message:
 
 ~~~tls
 struct {
+  opaque group_id<V>;
   opaque token<V>;
 } DownloadAttachmentRequest;
 ~~~
