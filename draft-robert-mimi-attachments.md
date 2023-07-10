@@ -48,18 +48,72 @@ attachments are used in MIMI.
 Since attachments are not directly distributed as messages, they are distributed
 over the MIMI Delivery Service.
 
-## Sending attachments
+## Uploading attachments
 
 When a client wants to send an attachment, it first uploads the attachment to
 the Delivery Service. The Delivery Service returns a token that can be used to
 download the attachment. The client then sends a message that contains the URL
 and cryptographic key material to the intended recipients.
 
+TODO: This probably become part of *draft-robert-mimi-delivery-service*.
+
+The client first encrypts the attachment as descibed in {{encryption}} and the n
+uploads it to the DS using the following message:
+
+~~~tls
+struct {
+  opaque content<V>;
+} UploadAttachmentRequest;
+~~~
+
+Upon succes, the Delivery Service returns the following message:
+
+~~~tls
+struct {
+  opaque token<V>;
+} UploadAttachmentResponse;
+~~~
+
+## Sending attachments
+
+Once clients have uploaded an attachment to the Delivery Service, they can send
+messages that contain a reference to the attachment. The client sets the
+contentType of the body as follows:
+
+~~~tls
+body.contentType = "message/external-body; access-type=token;" +
+  "token=<token>; nonce=<nonce>; hash=<hash>";
+~~~
+
+The token is the token that was received from the Delivery Service as part of
+the UploadAttachmentResponse message. The nonce is a random byte sequence that
+is used in the key derivation descibed in {{encryption}}. The hash is the hash
+of the plaintext attachment content, as defined in {{encryption}}.
+
+TODO: This needs to be better aligned with draft-ietf-mimi-content.
+
 ## Receiving attachments
 
 When a client receives a message that contains a reference to an attachment, it
-first downloads the attachment from the Delivery Service. The client then
-decrypts the attachment.
+first downloads the attachment from the Delivery Service using the following
+message:
+
+~~~tls
+struct {
+  opaque token<V>;
+} DownloadAttachmentRequest;
+~~~
+
+Upon succes, the Delivery Service returns the following message:
+
+~~~tls
+struct {
+  opaque content<V>;
+} DownloadAttachmentResponse;
+~~~
+
+The client then decrypts the attachment using the nonce for the key derivation
+ described in {{encryption}}.
 
 ## Deleting attachments
 
