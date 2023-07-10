@@ -46,7 +46,7 @@ attachments are used in MIMI.
 # Access control & quotas
 
 Attachments are bound to a specific MLS group. Only members of the group can
-access the attachment. The Delivery Service enforces this access control. 
+access the attachment. The Delivery Service enforces this access control.
 
 The Delivery Service can keep track of the size of attachments for each group,
 its total number, who uploaded them, etc. This information can be used to
