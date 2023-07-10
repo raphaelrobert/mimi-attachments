@@ -129,7 +129,7 @@ attachment_secret =
 ~~~
 attachment_nonce =
    ExpandWithLabel(attachment_secret, "nonce", "", AEAD.Nn)
-   
+
 attachment_key =
    ExpandWithLabel(attachment_secret, "key", "", AEAD.Nk)
 ~~~
