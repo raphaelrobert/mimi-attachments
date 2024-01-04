@@ -43,6 +43,14 @@ draft-mimi-content defines various message content formats that can be used in
 either MLS application messages or attachments. This document describes how
 attachments are used in MIMI.
 
+##  Change Log
+
+RFC EDITOR PLEASE DELETE THIS SECTION.
+
+draft-01
+
+- Version bump to prevent expiration
+
 # Access control & quotas
 
 Attachments are bound to a specific MLS group. Only members of the group can
