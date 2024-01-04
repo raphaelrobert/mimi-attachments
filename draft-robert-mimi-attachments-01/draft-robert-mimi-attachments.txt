@@ -49,6 +49,7 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
+     1.1.  Change Log
    2.  Access control & quotas
    3.  Distribution
      3.1.  Uploading attachments
@@ -75,6 +76,14 @@ Table of Contents
    draft-mimi-content defines various message content formats that can
    be used in either MLS application messages or attachments.  This
    document describes how attachments are used in MIMI.
+
+1.1.  Change Log
+
+   RFC EDITOR PLEASE DELETE THIS SECTION.
+
+   draft-01
+
+   *  Version bump to prevent expiration
 
 2.  Access control & quotas
 
