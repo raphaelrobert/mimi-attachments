@@ -10,24 +10,24 @@
 <meta content="
        This document describes MIMI Attachments. 
     " name="description">
-<meta content="xml2rfc 3.17.4" name="generator">
+<meta content="xml2rfc 3.19.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-robert-mimi-attachments-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.17.4
-    Python 3.11.4
-    ConfigArgParse 1.5.3
+  xml2rfc 3.19.0
+    Python 3.11.6
+    ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
-    lxml 4.9.2
-    platformdirs 3.8.0
+    lxml 4.9.3
+    platformdirs 4.1.0
     pycountry 22.3.5
-    PyYAML 6.0
+    PyYAML 6.0.1
     requests 2.31.0
-    setuptools 67.7.2
+    setuptools 68.2.2
     six 1.16.0
-    wcwidth 0.2.6
+    wcwidth 0.2.12
 -->
 <link href="draft-robert-mimi-attachments.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -650,7 +650,7 @@ sub, sup {
 }
 #toc nav li {
   line-height: 1.3em;
-  margin: 0.75em 0;
+  margin: 2px 0;
   padding-left: 1.2em;
   text-indent: -1.2em;
 }
@@ -743,7 +743,7 @@ hr.addr {
     z-index: 2;
     top: 0;
     right: 0;
-    padding: 0;
+    padding: 1px 0 0 0;
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
@@ -867,16 +867,13 @@ hr.addr {
     border-top: none;
     padding-top: 0;
   }
-  figure, pre {
+  figure, pre, .vcard {
     page-break-inside: avoid;
-  }
-  figure {
-    overflow: scroll;
   }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
   }
-  h2+*, h3+*, h4+*, h5+*, h6+* {
+  :is(h2, h3, h4, h5, h6)+*, dd {
     page-break-before: avoid;
   }
   pre {
@@ -889,6 +886,9 @@ hr.addr {
   }
   td {
     border-top: 1px solid #ddd;
+  }
+  .toplink {
+    display: none;
   }
 }
 
@@ -990,28 +990,6 @@ address div.right {
   text-align: right;
 }
 
-/* Give the table caption label the same styling as the figcaption */
-
-@media print {
-  .toplink {
-    display: none;
-  }
-
-  /* avoid overwriting the top border line with the ToC header */
-  #toc {
-    padding-top: 1px;
-  }
-
-  /* Avoid page breaks inside dl and author address entries */
-  dd {
-    page-break-before: avoid;
-  }
-  .vcard {
-    page-break-inside: avoid;
-  }
-
-}
-
 /* Dark mode. */
 @media (prefers-color-scheme: dark) {
 :root {
@@ -1048,11 +1026,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">MIMI</td>
-<td class="right">July 2023</td>
+<td class="right">January 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Robert &amp; Kohbrok</td>
-<td class="center">Expires 11 January 2024</td>
+<td class="center">Expires 7 July 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1043,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-robert-mimi-attachments-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-07-10" class="published">10 July 2023</time>
+<time datetime="2024-01-04" class="published">4 January 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-01-11">11 January 2024</time></dd>
+<dd class="expires"><time datetime="2024-07-07">7 July 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1108,7 +1086,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 January 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 7 July 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1117,7 +1095,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2023 IETF Trust and the persons identified as the
+            Copyright (c) 2024 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1334,18 +1312,23 @@ struct {
 <p id="section-3.6-3">Since attachments are specific to an MLS group, we reuse components the cipher
 suite of the group:<a href="#section-3.6-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.6-4.1">KDF<a href="#section-3.6-4.1" class="pilcrow">¶</a>
+<li class="normal" id="section-3.6-4.1">
+            <p id="section-3.6-4.1.1">KDF<a href="#section-3.6-4.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-4.2">Hash<a href="#section-3.6-4.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-3.6-4.2">
+            <p id="section-3.6-4.2.1">Hash<a href="#section-3.6-4.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-4.3">AEAD<a href="#section-3.6-4.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-3.6-4.3">
+            <p id="section-3.6-4.3.1">AEAD<a href="#section-3.6-4.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-4.4">ExpandWithLabel<a href="#section-3.6-4.4" class="pilcrow">¶</a>
+          <li class="normal" id="section-3.6-4.4">
+            <p id="section-3.6-4.4.1">ExpandWithLabel<a href="#section-3.6-4.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-3.6-5">The sender encrypts the attachment as follows:<a href="#section-3.6-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.6-6.1">Compute the hash of the attachment data:<a href="#section-3.6-6.1" class="pilcrow">¶</a>
+<li class="normal" id="section-3.6-6.1">
+            <p id="section-3.6-6.1.1">Compute the hash of the attachment data:<a href="#section-3.6-6.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <div class="alignLeft art-text artwork" id="section-3.6-7">
@@ -1354,15 +1337,18 @@ attachment_hash = Hash(plaintext)
 </pre><a href="#section-3.6-7" class="pilcrow">¶</a>
 </div>
 <ul class="normal">
-<li class="normal" id="section-3.6-8.1">Generate a random byte sequence <code>nonce</code> of length <code>KDF.Nh</code> bytes.<a href="#section-3.6-8.1" class="pilcrow">¶</a>
+<li class="normal" id="section-3.6-8.1">
+            <p id="section-3.6-8.1.1">Generate a random byte sequence <code>nonce</code> of length <code>KDF.Nh</code> bytes.<a href="#section-3.6-8.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-8.2">Set the context to the following values: <code>AttachmentContext.hash</code>
+          <li class="normal" id="section-3.6-8.2">
+            <p id="section-3.6-8.2.1">Set the context to the following values: <code>AttachmentContext.hash</code>
 to the previously computed <code>attachment_hash</code> and
-<code>AttachmentContext.sender_index</code> to the leaf index of the sender in the group.<a href="#section-3.6-8.2" class="pilcrow">¶</a>
+<code>AttachmentContext.sender_index</code> to the leaf index of the sender in the group.<a href="#section-3.6-8.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.6-8.3">Compute a secret <code>attachment_exporter_secret</code> from the MLS group
+          <li class="normal" id="section-3.6-8.3">
+            <p id="section-3.6-8.3.1">Compute a secret <code>attachment_exporter_secret</code> from the MLS group
 exporter using the previously computed context and extracts
-<code>attachment_secret</code> from it and the nonce:<a href="#section-3.6-8.3" class="pilcrow">¶</a>
+<code>attachment_secret</code> from it and the nonce:<a href="#section-3.6-8.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <div class="alignLeft art-text artwork" id="section-3.6-9">
@@ -1375,7 +1361,8 @@ attachment_secret =
 </pre><a href="#section-3.6-9" class="pilcrow">¶</a>
 </div>
 <ul class="normal">
-<li class="normal" id="section-3.6-10.1">Compute the nonce/key pair:<a href="#section-3.6-10.1" class="pilcrow">¶</a>
+<li class="normal" id="section-3.6-10.1">
+            <p id="section-3.6-10.1.1">Compute the nonce/key pair:<a href="#section-3.6-10.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <div class="alignLeft art-text artwork" id="section-3.6-11">
@@ -1388,7 +1375,8 @@ attachment_key =
 </pre><a href="#section-3.6-11" class="pilcrow">¶</a>
 </div>
 <ul class="normal">
-<li class="normal" id="section-3.6-12.1">Encrypt the attachment using the key/nonce pair.<a href="#section-3.6-12.1" class="pilcrow">¶</a>
+<li class="normal" id="section-3.6-12.1">
+            <p id="section-3.6-12.1.1">Encrypt the attachment using the key/nonce pair.<a href="#section-3.6-12.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
