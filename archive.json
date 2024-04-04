@@ -1,0 +1,111 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-04-04T00:09:43.337594+00:00",
+  "repo": "raphaelrobert/mimi-attachments",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOJ0NbVc5VE5SU",
+      "title": "Add actions",
+      "url": "https://github.com/raphaelrobert/mimi-attachments/pull/1",
+      "state": "MERGED",
+      "author": "raphaelrobert",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-07-10T11:39:09Z",
+      "updatedAt": "2023-07-10T13:14:41Z",
+      "baseRepository": "raphaelrobert/mimi-attachments",
+      "baseRefName": "main",
+      "baseRefOid": "3e70da344be62e6ca3cdcb3e46e1e70573de16cc",
+      "headRepository": "raphaelrobert/mimi-attachments",
+      "headRefName": "actions",
+      "headRefOid": "b464ac7433d3c1282a39365c34cf64378aab2d3c",
+      "closedAt": "2023-07-10T13:14:41Z",
+      "mergedAt": "2023-07-10T13:14:40Z",
+      "mergedBy": "raphaelrobert",
+      "mergeCommit": {
+        "oid": "e92a4b5bd00bbba3ab892fe00e724de3c3aaa5da"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOJ0NbVc5VHEJN",
+      "title": "Add clarifications for attachment distribution",
+      "url": "https://github.com/raphaelrobert/mimi-attachments/pull/2",
+      "state": "MERGED",
+      "author": "raphaelrobert",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-07-10T17:30:04Z",
+      "updatedAt": "2023-07-10T21:36:50Z",
+      "baseRepository": "raphaelrobert/mimi-attachments",
+      "baseRefName": "main",
+      "baseRefOid": "e92a4b5bd00bbba3ab892fe00e724de3c3aaa5da",
+      "headRepository": "raphaelrobert/mimi-attachments",
+      "headRefName": "endpoints",
+      "headRefOid": "84207233329258022253d18ab3d9be5dcc10f0a3",
+      "closedAt": "2023-07-10T21:36:49Z",
+      "mergedAt": "2023-07-10T21:36:49Z",
+      "mergedBy": "raphaelrobert",
+      "mergeCommit": {
+        "oid": "7fb2e7fea9c5faf7b3df484051a44c90cbdeeec7"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
