@@ -45,9 +45,11 @@ attachments are used in MIMI.
 
 ##  Change Log
 
-RFC EDITOR PLEASE DELETE THIS SECTION.
-
 draft-01
+
+- Version bump to prevent expiration
+
+draft-02
 
 - Version bump to prevent expiration
 
