@@ -5,7 +5,7 @@
 Network Working Group                                          R. Robert
 Internet-Draft                                                K. Kohbrok
 Intended status: Informational                               Phoenix R&D
-Expires: 7 July 2024                                      4 January 2024
+Expires: 4 January 2025                                      3 July 2024
 
 
                             MIMI Attachments
@@ -30,7 +30,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 July 2024.
+   This Internet-Draft will expire on 4 January 2025.
 
 Copyright Notice
 
@@ -79,9 +79,11 @@ Table of Contents
 
 1.1.  Change Log
 
-   RFC EDITOR PLEASE DELETE THIS SECTION.
-
    draft-01
+
+   *  Version bump to prevent expiration
+
+   draft-02
 
    *  Version bump to prevent expiration
 
