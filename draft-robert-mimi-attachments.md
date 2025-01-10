@@ -53,6 +53,10 @@ draft-02
 
 - Version bump to prevent expiration
 
+draft-03
+
+- Version bump to prevent expiration
+
 # Access control & quotas
 
 Attachments are bound to a specific MLS group. Only members of the group can
