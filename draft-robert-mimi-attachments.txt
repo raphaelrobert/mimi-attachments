@@ -5,7 +5,7 @@
 Network Working Group                                          R. Robert
 Internet-Draft                                                K. Kohbrok
 Intended status: Informational                               Phoenix R&D
-Expires: 16 March 2025                                 12 September 2024
+Expires: 8 January 2026                                      7 July 2025
 
 
                             MIMI Attachments
@@ -30,11 +30,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 March 2025.
+   This Internet-Draft will expire on 8 January 2026.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -84,6 +84,14 @@ Table of Contents
    *  Version bump to prevent expiration
 
    draft-02
+
+   *  Version bump to prevent expiration
+
+   draft-03
+
+   *  Version bump to prevent expiration
+
+   draft-04
 
    *  Version bump to prevent expiration
 
